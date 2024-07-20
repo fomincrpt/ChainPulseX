@@ -1,0 +1,16 @@
+# scripts/blockchain_connection.py
+
+from web3 import Web3
+
+def connect_to_blockchain(network_url):
+    """
+    Connect to a blockchain network.
+
+    :param network_url: URL of the blockchain network
+    :return: Web3 instance
+    """
+    web3 = Web3(Web3.HTTPProvider(network_url))
+    if web3.isConnected():
+        return web3
+    else:
+        raise ConnectionError("Failed to connect to the blockchain network")
